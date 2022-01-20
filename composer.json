@@ -1,0 +1,8 @@
+{
+    "name": "dynamedia/responsecache-plugin",
+    "type": "october-plugin",
+    "description": "Generate static files from the HTTP response for fast page loads",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}

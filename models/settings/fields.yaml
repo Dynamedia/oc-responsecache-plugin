@@ -1,0 +1,163 @@
+tabs:
+    fields:
+        exclude:
+            stretch: true
+            tab: dynamedia.responsecache::lang.settings.tabs.exceptions
+            type: repeater
+            titleFrom: url
+            form:
+                fields:
+                    url_pattern:
+                        label: dynamedia.responsecache::lang.settings.fields.url_pattern
+                        required: true
+                        type: text
+
+        auto_clearing:
+            tab: dynamedia.responsecache::lang.settings.tabs.clearing
+            label: dynamedia.responsecache::lang.settings.fields.auto_clearing
+            comment: dynamedia.responsecache::lang.settings.fields.auto_clearing_comment
+            type: checkbox
+
+        blog_post:
+            tab: dynamedia.responsecache::lang.settings.tabs.clearing
+            label: dynamedia.responsecache::lang.settings.fields.blog.post.label
+            comment: dynamedia.responsecache::lang.settings.fields.blog.post.comment
+            type: section
+            trigger:
+                action: show
+                field: auto_clearing
+                condition: checked
+
+        blog_post_pattern:
+            tab: dynamedia.responsecache::lang.settings.tabs.clearing
+            label: dynamedia.responsecache::lang.settings.fields.blog.post.pattern
+            comment: dynamedia.responsecache::lang.settings.fields.blog.post.pattern_comment
+            type: dropdown
+            cssClass: input-sidebar-control
+            trigger:
+                action: show
+                field: auto_clearing
+                condition: checked
+
+        blog_post_pattern_post_slug:
+            tab: dynamedia.responsecache::lang.settings.tabs.clearing
+            label: dynamedia.responsecache::lang.settings.fields.blog.post.pattern_post_slug
+            comment: dynamedia.responsecache::lang.settings.fields.blog.post.pattern_post_slug_comment
+            type: text
+            required: true
+            trigger:
+                action: show
+                field: auto_clearing
+                condition: checked
+
+        blog_post_pattern_category_slug:
+            tab: dynamedia.responsecache::lang.settings.tabs.clearing
+            label: dynamedia.responsecache::lang.settings.fields.blog.post.pattern_category_slug
+            comment: dynamedia.responsecache::lang.settings.fields.blog.post.pattern_category_slug_comment
+            type: text
+            trigger:
+                action: show
+                field: auto_clearing
+                condition: checked
+
+        blog_post_pattern_exclude_variables:
+            tab: dynamedia.responsecache::lang.settings.tabs.clearing
+            label: dynamedia.responsecache::lang.settings.fields.blog.post.pattern_exclude_variables
+            comment: dynamedia.responsecache::lang.settings.fields.blog.post.pattern_exclude_variable_comment
+            prompt: dynamedia.responsecache::lang.settings.fields.blog.post.exclude_variable_prompt
+            type: repeater
+            trigger:
+                action: show
+                field: auto_clearing
+                condition: checked
+            form:
+                fields:
+                    variable:
+                        label: dynamedia.responsecache::lang.settings.fields.blog.post.exclude_variable_label
+                        span: full
+                        type: text
+
+        blog_post_extra_urls:
+            tab: dynamedia.responsecache::lang.settings.tabs.clearing
+            label: dynamedia.responsecache::lang.settings.fields.blog.post.extra_urls
+            comment: dynamedia.responsecache::lang.settings.fields.blog.post.extra_urls_comment
+            prompt: dynamedia.responsecache::lang.settings.fields.blog.post.extra_urls_prompt
+            type: repeater
+            trigger:
+                action: show
+                field: auto_clearing
+                condition: checked
+            form:
+                fields:
+                    url:
+                        label: dynamedia.responsecache::lang.settings.fields.blog.post.extra_urls_label
+                        span: full
+                        type: text
+
+
+        blog_category:
+            tab: dynamedia.responsecache::lang.settings.tabs.clearing
+            label: dynamedia.responsecache::lang.settings.fields.blog.category.label
+            comment: dynamedia.responsecache::lang.settings.fields.blog.category.comment
+            type: section
+            trigger:
+                action: show
+                field: auto_clearing
+                condition: checked
+
+        blog_category_pattern:
+            tab: dynamedia.responsecache::lang.settings.tabs.clearing
+            label: dynamedia.responsecache::lang.settings.fields.blog.category.pattern
+            comment: dynamedia.responsecache::lang.settings.fields.blog.category.pattern_comment
+            type: dropdown
+            cssClass: input-sidebar-control
+            trigger:
+                action: show
+                field: auto_clearing
+                condition: checked
+
+        blog_category_pattern_slug:
+            tab: dynamedia.responsecache::lang.settings.tabs.clearing
+            label: dynamedia.responsecache::lang.settings.fields.blog.category.pattern_slug
+            comment: dynamedia.responsecache::lang.settings.fields.blog.category.pattern_slug_comment
+            type: text
+            required: true
+            trigger:
+                action: show
+                field: auto_clearing
+                condition: checked
+
+        blog_category_pattern_exclude_variables:
+            tab: dynamedia.responsecache::lang.settings.tabs.clearing
+            label: dynamedia.responsecache::lang.settings.fields.blog.category.pattern_exclude_variables
+            comment: dynamedia.responsecache::lang.settings.fields.blog.category.pattern_exclude_variable_comment
+            prompt: dynamedia.responsecache::lang.settings.fields.blog.category.exclude_variable_prompt
+            type: repeater
+            trigger:
+                action: show
+                field: auto_clearing
+                condition: checked
+            form:
+                fields:
+                    variable:
+                        label: dynamedia.responsecache::lang.settings.fields.blog.category.exclude_variable_label
+                        span: full
+                        type: text
+
+        blog_category_extra_urls:
+            tab: dynamedia.responsecache::lang.settings.tabs.clearing
+            label: dynamedia.responsecache::lang.settings.fields.blog.category.extra_urls
+            comment: dynamedia.responsecache::lang.settings.fields.blog.category.extra_urls_comment
+            prompt: dynamedia.responsecache::lang.settings.fields.blog.category.extra_urls_prompt
+            type: repeater
+            trigger:
+                action: show
+                field: auto_clearing
+                condition: checked
+            form:
+                fields:
+                    url:
+                        label: dynamedia.responsecache::lang.settings.fields.blog.category.extra_urls_label
+                        span: full
+                        type: text
+
