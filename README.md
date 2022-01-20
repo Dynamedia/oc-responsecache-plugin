@@ -3,7 +3,7 @@
 ** WORK IN PROGRESS - NO NOT USE **
 
 This plugin generates static files from PHP responses. These files can be served directly
-by your web server without need to invoke PHP for some requests.
+by your web server without the need to invoke PHP for some requests.
 
 This is PHP done efficiently - We don't want to waste resources re-generating the same
 content over and over again. It's both computationally and environmentally expensive.
@@ -15,7 +15,7 @@ to ensure suitability with current and future Dynamedia plugins.
 
 ### Notes
 
-For this plugin to work, you will need to make some minor alterations to your web server so
+For this plugin to work, you will need to make some minor alterations to your web server configuration so
 that the generated static files can be served.
 
 By default, ResponseCache plugin will cache all responses with a 200 (success) response code
