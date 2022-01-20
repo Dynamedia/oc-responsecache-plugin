@@ -58,27 +58,27 @@ Remember, you can cache a container page and fetch tailored content in a separat
 ### Nginx
 
 ```nginx
+
 location = / {
-    try_files /storage/page-cache/pc__index__pc.html /index.php?$query_string;
+    if ($request_method = POST ) {
+        rewrite ^/.*$ /index.php last;
+    }
+    try_files /storage/page-cache/pc__index__pc[q_${args}].html /index.php?$args;
 }
 
-location / {
-    try_files $uri $uri/ /storage/page-cache/$uri.html /storage/page-cache/$uri.json /index.php?$query_string;
-}
-```
-
-If you need to send ajax requests to cached url, you should use this construction
-
-```nginx
 location / {
     if ($request_method = POST ) {
         rewrite ^/.*$ /index.php last;
     }
-
-    try_files $uri $uri/ /storage/page-cache/$uri.html /storage/page-cache/$uri.json /index.php?$query_string;
+    try_files $uri $uri/ \
+        /storage/page-cache/${uri}[q_${args}].html \
+        /storage/page-cache/${uri}[q_${args}].json \
+        /storage/page-cache/${uri}[q_${args}].rss \
+        /storage/page-cache/${uri}[q_${args}].xml \
+        /storage/page-cache/${uri}[q_${args}].txt \
+        /index.php?$args;
 }
 ```
-
 
 ### Ignoring the cached files
 
