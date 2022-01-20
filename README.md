@@ -11,7 +11,8 @@ content over and over again. It's both computationally and environmentally expen
 Be fast, be efficient.
 
 The plugin is a derivative work of https://github.com/Biz-mark/Quicksilver but has been adapted
-to ensure suitability with current and future Dynamedia plugins.
+to ensure suitability with current and future Dynamedia plugins along with adding support for
+more filetypes and query strings (for API caching).
 
 ### Notes
 
