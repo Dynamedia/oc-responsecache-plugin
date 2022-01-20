@@ -40,10 +40,10 @@ Remember, you can cache a container page and fetch tailored content in a separat
     ## Serve Cached Page If Available
     ##
     RewriteCond %{REQUEST_URI} ^/?$
-    RewriteCond %{DOCUMENT_ROOT}/storage/page-cache/pc__index__pc.html -f
-    RewriteRule .? /storage/page-cache/pc__index__pc.html [L]
-    RewriteCond %{DOCUMENT_ROOT}/storage/page-cache%{REQUEST_URI}.html -f
-    RewriteRule . /storage/page-cache%{REQUEST_URI}.html [L]
+    RewriteCond %{DOCUMENT_ROOT}/storage/response-cache/pc__index__pc.html -f
+    RewriteRule .? /storage/response-cache/pc__index__pc.html [L]
+    RewriteCond %{DOCUMENT_ROOT}/storage/pagresponsee-cache%{REQUEST_URI}.html -f
+    RewriteRule . /storage/response-cache%{REQUEST_URI}.html [L]
     RewriteCond %{HTTP:X-Requested-With} XMLHttpRequest
     RewriteRule !^index.php index.php [L,NC]
     ```
@@ -53,7 +53,7 @@ Remember, you can cache a container page and fetch tailored content in a separat
     RewriteRule !^index.php index.php [L,NC]
     ```
 
-3. **Be sure that plugin can create/write/read "page-cache" folder in your storage path.**
+3. **Be sure that plugin can create/write/read "response-cache" folder in your storage path.**
 
 ### Nginx
 
@@ -63,7 +63,7 @@ location = / {
     if ($request_method = POST ) {
         rewrite ^/.*$ /index.php last;
     }
-    try_files /storage/page-cache/pc__index__pc[q_${args}].html /index.php?$args;
+    try_files /storage/response-cache/pc__index__pc[q_${args}].html /index.php?$args;
 }
 
 location / {
@@ -71,11 +71,11 @@ location / {
         rewrite ^/.*$ /index.php last;
     }
     try_files $uri $uri/ \
-        /storage/page-cache/${uri}[q_${args}].html \
-        /storage/page-cache/${uri}[q_${args}].json \
-        /storage/page-cache/${uri}[q_${args}].rss \
-        /storage/page-cache/${uri}[q_${args}].xml \
-        /storage/page-cache/${uri}[q_${args}].txt \
+        /storage/response-cache/${uri}[q_${args}].html \
+        /storage/response-cache/${uri}[q_${args}].json \
+        /storage/response-cache/${uri}[q_${args}].rss \
+        /storage/response-cache/${uri}[q_${args}].xml \
+        /storage/response-cache/${uri}[q_${args}].txt \
         /index.php?$args;
 }
 ```
