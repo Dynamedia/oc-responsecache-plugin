@@ -85,7 +85,7 @@ location / {
 To make sure you don't commit your locally cached files to your git repository, add this line to your `.gitignore` file:
 
 ```
-/storage/page-cache
+/storage/response-cache
 ```
 
 ## Clearing the cache
@@ -93,7 +93,7 @@ To make sure you don't commit your locally cached files to your git repository, 
 Since the responses are cached to disk as static files, any updates to those pages in your app will not be reflected on your site. To update pages on your site, you should clear the cache with the following command:
 
 ```
-php artisan page-cache:clear
+php artisan response-cache:clear
 ```
 
 As a rule of thumb, it's good practice to add this to your deployment script. That way, whenever you push an update to your site the page cache will automatically be cleared.
@@ -103,7 +103,7 @@ If you're using [Forge](https://forge.laravel.com)'s Quick Deploy feature, you s
 You may optionally pass a URL slug to the command, to only delete the cache for a specific page:
 
 ```
-php artisan page-cache:clear {slug}
+php artisan response-cache:clear {slug}
 ```
 
 ## Customizing what to cache

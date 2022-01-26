@@ -39,6 +39,7 @@ class CacheClearHandler
 
     public function rainlabStaticPagesClearing()
     {
+        if (!class_exists('\RainLab\Pages\Classes\Page')) return;
 
         \RainLab\Pages\Classes\Page::extend(function ($model) {
             $model->bindEvent('model.afterSave', function () use ($model) {
@@ -55,6 +56,8 @@ class CacheClearHandler
 
     public function rainlabBlogClearing()
     {
+        if (!class_exists('\RainLab\Blog\Models\Post')) return;
+
         \RainLab\Blog\Models\Post::extend(function ($model) {
             $model->bindEvent('model.afterSave', function () use ($model) {
                 CacheCleaner::scheduleOrClearPost($model);

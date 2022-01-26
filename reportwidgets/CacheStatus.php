@@ -69,7 +69,7 @@ class CacheStatus extends ReportWidgetBase
      */
     public function onClearPageCache(): array
     {
-        Artisan::call('page-cache:clear');
+        Artisan::call('response-cache:clear');
 
         Flash::success(Lang::get('dynamedia.responsecache::lang.reportwidget.cachestatus.flash.pages_cleared_success'));
         return $this->renderWidget();

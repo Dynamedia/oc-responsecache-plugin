@@ -226,7 +226,7 @@ class CacheCleaner
 
         $properties['slug'] = preg_replace('/\*$/', '', $url);
 
-        Artisan::call('page-cache:clear', $properties);
+        Artisan::call('response-cache:clear', $properties);
     }
 
     /**
@@ -234,6 +234,6 @@ class CacheCleaner
      */
     public static function clear(): void
     {
-        Artisan::call('page-cache:clear');
+        Artisan::call('response-cache:clear');
     }
 }

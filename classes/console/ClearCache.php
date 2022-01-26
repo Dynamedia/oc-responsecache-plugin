@@ -11,14 +11,14 @@ class ClearCache extends Command
      *
      * @var string
      */
-    protected $signature = 'page-cache:clear {slug? : URL slug of page to delete} {--recursive}';
+    protected $signature = 'response-cache:clear {slug? : URL slug of page to delete} {--recursive}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Clear the page cache.';
+    protected $description = 'Clear the response cache.';
 
     /**
      * Execute the console command.
@@ -51,9 +51,9 @@ class ClearCache extends Command
     protected function forget(Cache $cache, ?string $slug): void
     {
         if ($cache->forget($slug)) {
-            $this->info('Page cache cleared for "'. $slug .'"');
+            $this->info('Response cache cleared for "'. $slug .'"');
         } else {
-            $this->info('No page cache found for "' .$slug .'"');
+            $this->info('Response cache found for "' .$slug .'"');
         }
     }
 
@@ -68,9 +68,9 @@ class ClearCache extends Command
     protected function clear(Cache $cache, ?string $path = null): void
     {
         if ($cache->clear($path)) {
-            $this->info('Page cache cleared at '. $cache->getCachePath($path));
+            $this->info('Response cache cleared at '. $cache->getCachePath($path));
         } else {
-            $this->warn('Page cache not cleared at '. $cache->getCachePath($path));
+            $this->warn('Response cache not cleared at '. $cache->getCachePath($path));
         }
     }
 }

@@ -45,7 +45,7 @@ class Plugin extends PluginBase
     {
         $this->app->bind(PageCacheContract::class, Cache::class);
 
-        $this->registerConsoleCommand('page-cache:clear', ClearCache::class);
+        $this->registerConsoleCommand('response-cache:clear', ClearCache::class);
     }
 
     /**
