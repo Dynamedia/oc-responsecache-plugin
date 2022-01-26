@@ -1,5 +1,10 @@
 tabs:
     fields:
+        is_enabled:
+            type: switch
+            tab: dynamedia.responsecache::lang.settings.tabs.general
+            label: dynamedia.responsecache::lang.settings.fields.enable_cache
+            default: true
         exclude:
             stretch: true
             tab: dynamedia.responsecache::lang.settings.tabs.exceptions

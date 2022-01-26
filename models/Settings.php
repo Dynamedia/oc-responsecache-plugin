@@ -1,6 +1,7 @@
 <?php namespace Dynamedia\ResponseCache\Models;
 
 use Cms\Classes\Page;
+use Dynamedia\ResponseCache\Classes\CacheCleaner;
 use Illuminate\Support\Facades\Cache;
 use October\Rain\Database\Model;
 
@@ -31,6 +32,16 @@ class Settings extends Model
      * @var string
      */
     public $settingsFields = 'fields.yaml';
+
+    /**
+     * Clear the cache when saving settings and cache is disabled
+     */
+    public function afterSave() : void
+    {
+        if (!$this->is_enabled) {
+            CacheCleaner::clear();
+        }
+    }
 
     /**
      * @return bool

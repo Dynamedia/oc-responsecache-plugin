@@ -2,6 +2,7 @@
 
 use Dynamedia\ResponseCache\Classes\Exceptions\CacheDirectoryPathNotSetException;
 use Config;
+use Dynamedia\ResponseCache\Models\Settings;
 use Exception;
 
 use Illuminate\Filesystem\Filesystem;
@@ -102,12 +103,13 @@ class Cache implements PageCacheContract
      */
     public function shouldCache(Request $request, Response $response): bool
     {
+        $isCacheEmabled       = Settings::instance()->get('is_enabled');
         $isRequestAccess      = $request->isMethod('GET') && $request->getQueryString() === null;
         $isRequestQueryAccess = $response->getStatusCode() === 200 && $request->getQueryString() === null;
         $isBackendUri         = !Str::contains($request->getUri(), Config::get('cms::backendUri', 'backend'));
         $isNotAssetsCombined  = !Str::contains($request->getUri(), $request->getSchemeAndHttpHost() . '/combine/');
 
-        return $isRequestAccess && $isRequestQueryAccess && $isBackendUri && $isNotAssetsCombined;
+        return $isCacheEmabled && $isRequestAccess && $isRequestQueryAccess && $isBackendUri && $isNotAssetsCombined;
     }
 
 

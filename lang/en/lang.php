@@ -9,10 +9,12 @@ return [
         'label' => 'ResponseCache',
         'description' => 'Plugin settings, adding exceptions',
         'tabs' => [
+            'general' => 'General',
             'exceptions' => 'Exceptions',
             'clearing' => 'Clearing'
         ],
         'fields' => [
+            'enable_cache' => 'Enable Cache',
             'url_pattern' => 'Route pattern',
             'auto_clearing' => 'Auto cache clearing',
             'auto_clearing_comment' => 'Clear cache after save model of: cms/page, rainlab/post, rainlab/post-category, rainlab/static-page, rainlab/menu.',
